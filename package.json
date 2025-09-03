@@ -1,0 +1,82 @@
+{
+  "name": "blog-avaliacoes",
+  "version": "1.0.0",
+  "description": "Um blog para avaliações de mangas, livros, filmes, séries e cursos.",
+  "main": "main.js",
+  "homepage": "./",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "electron": "electron .",
+    "electron-dev": "ELECTRON_IS_DEV=true electron .",
+    "build": "electron-builder",
+    "build-win": "electron-builder --win",
+    "build-mac": "electron-builder --mac",
+    "build-linux": "electron-builder --linux",
+    "dist": "npm run build"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.21.2",
+    "express-session": "^1.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^2.0.2",
+    "mysql2": "^3.14.4",
+    "pg": "^8.7.1",
+    "sequelize": "^6.37.7",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "electron": "^11.5.0",
+    "electron-builder": "^22.14.13",
+    "nodemon": "^2.0.7"
+  },
+  "keywords": [
+    "blog",
+    "avaliações",
+    "mangas",
+    "livros",
+    "filmes",
+    "séries",
+    "cursos",
+    "electron",
+    "desktop"
+  ],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "build": {
+    "appId": "com.blogavaliacoes.app",
+    "productName": "Blog de Avaliações",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist/**/*",
+      "!build/**/*",
+      "!*.md",
+      "!docs/**/*"
+    ],
+    "win": {
+      "target": "dir"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Blog de Avaliações"
+    }
+  }
+}
