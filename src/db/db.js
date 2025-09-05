@@ -9,13 +9,14 @@ const sequelize = new Sequelize(
         host: process.env.DB_HOST,
         dialect: 'mysql',
         port: process.env.DB_PORT,
+        logging: false, // Desabilitar logs de queries SQL
     }
 );
 
 const connectDB = async () => {
     try {
         await sequelize.authenticate();
-        console.log('Conexão com o MySQL estabelecida com sucesso!');
+        // console.log('Conexão com o MySQL estabelecida com sucesso!');
     } catch (err) {
         console.error('Erro ao conectar ao MySQL:', err);
         process.exit(1);

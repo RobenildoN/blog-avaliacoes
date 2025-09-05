@@ -34,7 +34,7 @@ app.use(express.static(__dirname + '/views'));
 // Log para requests de arquivos estáticos
 app.use((req, res, next) => {
   if (req.url.match(/\.(css|js|png|jpg|jpeg|gif|ico|svg)$/)) {
-    console.log('Request para arquivo estático:', req.url);
+    // console.log('Request para arquivo estático:', req.url);
   }
   next();
 });
@@ -64,6 +64,6 @@ connectDB();
 setupAssociations();
 
 app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
+    // console.log(`Servidor rodando na porta ${PORT}`);
 });
 

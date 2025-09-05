@@ -1,6 +1,6 @@
 # Blog de Avaliações 📚🎬📖
 
-Um blog moderno e responsivo dedicado à avaliação e compartilhamento de opiniões sobre mangas, livros, filmes, séries e cursos. Construído com Node.js, Express e MySQL, oferecendo uma experiência completa de gerenciamento de conteúdo.
+Um blog moderno e responsivo dedicado à avaliação e compartilhamento de opiniões sobre mangas, livros, filmes, séries e cursos. Construído com Node.js, Express e MySQL, oferecendo uma experiência completa de gerenciamento de conteúdo via web.
 
 ## ✨ Funcionalidades
 
@@ -43,26 +43,6 @@ Um blog moderno e responsivo dedicado à avaliação e compartilhamento de opini
 - **Feedback Visual**: Estados de carregamento e confirmações
 - **Acessibilidade**: Navegação por teclado e leitores de tela
 
-### 🖥️ Versões Desktop (Electron)
-
-#### Versão Conectada (Recomendada)
-- **Aplicativo Nativo**: Executável .exe para Windows
-- **Menu Nativo**: Menus do Windows (Arquivo, Editar, Visualizar, Ajuda)
-- **Atalhos de Teclado**: Suporte completo a atalhos
-- **Janela Redimensionável**: Interface adaptável
-- **Ícone na Barra**: Identificação visual na barra de tarefas
-- **Mensagens de Erro**: Tratamento elegante de conexões
-- **Servidor Externo**: Requer Node.js + MySQL rodando
-
-#### 🆕 Versão Autônoma (Nova!)
-- **Completamente Offline**: Funciona sem servidor externo
-- **Armazenamento Local**: Dados salvos em arquivos JSON
-- **Imagens Locais**: Uploads salvos na pasta do usuário
-- **Portabilidade Total**: Execute em qualquer PC Windows
-- **Privacidade Máxima**: Dados ficam apenas no seu computador
-- **Zero Dependências**: Não requer MySQL ou configurações
-- **📁 Pasta**: `blog-avaliacoes-standalone/`
-- **📄 Documentação**: `STANDALONE-README.md`
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -85,8 +65,6 @@ Um blog moderno e responsivo dedicado à avaliação e compartilhamento de opini
 ### Ferramentas de Desenvolvimento
 - **Nodemon**: Reinicialização automática do servidor
 - **Swagger**: Documentação interativa da API
-- **Electron**: Empacotamento para aplicativo desktop
-- **electron-builder**: Build de executáveis multiplataforma
 - **Git**: Controle de versão
 - **VS Code**: Ambiente de desenvolvimento
 
@@ -127,19 +105,6 @@ blog-avaliacoes/
 │   │   └── db.js               # Conexão e configuração Sequelize
 │   ├── swagger.js          # Configuração do Swagger
 │   └── index.js            # Arquivo principal da aplicação
-├── main.js                 # Arquivo principal do Electron (versão conectada)
-├── ELECTRON-README.md      # Documentação específica da versão desktop
-├── dist/                   # Arquivos de build da versão conectada
-│   └── win-unpacked/       # Aplicação desktop descompactada
-│       └── Blog de Avaliações.exe
-├── blog-avaliacoes-standalone/  # 🆕 Versão autônoma completa
-│   ├── main.js             # Arquivo principal do Electron autônomo
-│   ├── src/                # Código fonte da versão autônoma
-│   ├── dist/               # Build da versão autônoma
-│   │   └── win-unpacked/
-│   │       └── Blog de Avaliações - Autônomo.exe
-│   ├── STANDALONE-README.md # Documentação específica da versão autônoma
-│   └── package.json        # Configurações da versão autônoma
 ├── .env                    # Variáveis de ambiente
 ├── .gitignore             # Arquivos ignorados pelo Git
 ├── package.json           # Dependências e scripts
@@ -153,21 +118,6 @@ blog-avaliacoes/
 - **Node.js** (versão 14 ou superior)
 - **MySQL** (versão 5.7 ou superior)
 - **Git** (para controle de versão)
-
-### 📱 Versões Desktop (Opcional)
-Para usar como aplicativo desktop:
-
-#### Versão Conectada
-- **Electron** (incluído nas dependências de desenvolvimento)
-- **Windows 10/11** (para versão .exe)
-- **MySQL** rodando localmente
-- Executável: `dist/win-unpacked/Blog de Avaliações.exe`
-
-#### Versão Autônoma
-- **Zero dependências externas**
-- **Dados salvos localmente**
-- **Executável independente**
-- Localização: `blog-avaliacoes-standalone/dist/win-unpacked/Blog de Avaliações - Autônomo.exe`
 
 ### Passos de Instalação
 
@@ -215,8 +165,6 @@ Para usar como aplicativo desktop:
 
 ## 📖 Como Usar
 
-### 🌐 Versão Web (Padrão)
-
 1. **Navegação:**
    - Acesse a página inicial para ver todos os posts
    - Use os filtros por categoria na navegação
@@ -232,59 +180,6 @@ Para usar como aplicativo desktop:
    - Crie novos posts com título, resumo, avaliação e imagem
    - Edite posts existentes através do modal de edição
    - Delete posts com confirmação de segurança
-
-### 🖥️ Versão Desktop (Electron)
-
-#### Versão Conectada
-1. **Pré-requisitos:**
-   - Servidor deve estar rodando: `npm start`
-   - MySQL configurado e rodando
-   - Executável: `dist/win-unpacked/Blog de Avaliações.exe`
-
-2. **Executar:**
-   ```bash
-   # Opção 1: Executar diretamente
-   ./dist/win-unpacked/Blog\ de\ Avaliações.exe
-
-   # Opção 2: Usar npm script
-   npm run electron
-   ```
-
-3. **Recursos:**
-   - Menu nativo do Windows (Arquivo, Editar, Visualizar, Ajuda)
-   - Atalhos de teclado completos
-   - Janela redimensionável
-   - Ícone na barra de tarefas
-   - Mensagens de erro aprimoradas
-
-#### 🆕 Versão Autônoma
-1. **Pré-requisitos:**
-   - Nenhum! Funciona completamente offline
-   - Executável: `blog-avaliacoes-standalone/dist/win-unpacked/Blog de Avaliações - Autônomo.exe`
-
-2. **Executar:**
-   ```bash
-   # Entrar na pasta da versão autônoma
-   cd blog-avaliacoes-standalone
-
-   # Executar diretamente
-   ./dist/win-unpacked/Blog\ de\ Avaliações\ -\ Autônomo.exe
-
-   # Ou usar npm script
-   npm run electron
-   ```
-
-3. **Recursos Exclusivos:**
-   - **Completamente Offline** - Não precisa de servidor
-   - **Dados Locais** - Tudo salvo no seu computador
-   - **Portabilidade Total** - Execute em qualquer PC
-   - **Privacidade Máxima** - Dados ficam apenas localmente
-   - **Zero Configuração** - Funciona imediatamente
-
-4. **Primeiro Uso:**
-   - **Usuário padrão**: `admin`
-   - **Senha padrão**: `admin123`
-   - **Acesse**: `http://localhost:3001` (aberto automaticamente)
 
 ### Para Desenvolvedores
 
@@ -304,55 +199,13 @@ Para usar como aplicativo desktop:
 
 ## 🔧 Scripts Disponíveis
 
-### Servidor Web
 ```bash
 # Iniciar servidor em modo produção
 npm start
 
 # Iniciar servidor em modo desenvolvimento (com nodemon)
 npm run dev
-```
 
-### Aplicação Desktop (Electron)
-
-#### Versão Conectada
-```bash
-# Executar aplicação Electron (desenvolvimento)
-npm run electron
-
-# Executar aplicação Electron (modo desenvolvimento)
-npm run electron-dev
-
-# Build da aplicação para Windows
-npm run build-win
-
-# Build da aplicação para macOS
-npm run build-mac
-
-# Build da aplicação para Linux
-npm run build-linux
-
-# Build completo para todas as plataformas
-npm run dist
-```
-
-#### Versão Autônoma
-```bash
-# Entrar na pasta da versão autônoma
-cd blog-avaliacoes-standalone
-
-# Executar aplicação autônoma (desenvolvimento)
-npm run electron
-
-# Build da versão autônoma para Windows
-npm run build-win
-
-# Executar versão já compilada
-./dist/win-unpacked/Blog\ de\ Avaliações\ -\ Autônomo.exe
-```
-
-### Desenvolvimento
-```bash
 # Executar testes (se configurados)
 npm test
 
