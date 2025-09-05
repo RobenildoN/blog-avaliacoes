@@ -6,6 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog de Avaliações</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        @media (max-width: 470px) {
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            header nav li {
+                margin: 5px 0;
+            }
+            .search-box {
+                flex-direction: column;
+                align-items: center;
+            }
+            .search-box input, .search-box button {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -40,7 +58,7 @@
             </ul>
         </nav>
     </header>
-    <main>
+    <main style="padding-top: 0;">
         <section id="latestPosts">
             <div style="text-align: center; width: 100%; margin-bottom: 15px;">
                 <h2>Últimos Posts</h2>
@@ -61,8 +79,8 @@
             </div>
         </section>
     </main>
-    <footer>
-        <p><a href="#">Blog de Avaliações</a></p>
+    <footer style="height: 30px; padding: 5px 0; text-align: center;">
+        <p style="margin: 0;"><a href="#">Blog de Avaliações</a></p>
     </footer>
     <script src="/js/script.js"></script>
     <script>
@@ -182,6 +200,18 @@
                 paginationControls.style.display = 'none';
             }
         }
+        // Função para obter o texto da marca baseado na categoria
+        function obterTextoMarca(categoryId) {
+            if (categoryId === 1 || categoryId === 3) {
+                return "Lido até:";
+            } else if (categoryId === 2 || categoryId === 4) {
+                return "Visto até:";
+            } else if (categoryId === 5) {
+                return "Feito até:";
+            } else {
+                return "Até:";
+            }
+        }
 
         // Função para atualizar o título da página
         function atualizarTitulo(searchTerm, categoryId) {
@@ -283,12 +313,13 @@
 
             postsContainer.innerHTML = posts.map(post => `
                 <div class="post" style="width: 300px; border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                    <img src="${post.imagem || '../public/img/exemplo.jpg'}" alt="${post.titulo}" style="width: 100%; height: 360px; object-fit: contain; border-radius: 5px;">
+                    <img src="${post.imagem || '../public/img/exemplo.jpg'}" alt="${post.titulo}" style="width: 100%; height: 300px; object-fit: contain; border-radius: 5px;">
                     <h3 style="margin: 10px 0; text-align: center;">${post.titulo}</h3>
                     <p style="text-align: justify;">${limitarTexto(post.resumo)}</p>
                     <p style="text-align: center;">Avaliação: ${'★'.repeat(post.avaliacao)}${'☆'.repeat(5 - post.avaliacao)}</p>
                     <p style="text-align: center;"><strong>Categoria:</strong> ${post.Category ? post.Category.name : 'N/A'}</p>
-                    <p style="text-align: center;">Data do Post: ${new Date(post.data_post).toLocaleDateString('pt-BR')}</p>
+                    <p style="text-align: center;"><strong>${obterTextoMarca(post.Category ? post.Category.id : 0)}</strong> ${post.lido_ate || 'N/A'}</p>
+
                     <div style="text-align: center;">
                         <a href="/post.html?id=${post.id}" style="display: inline-block; padding: 8px 16px; background: #5cb85c; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px;">Ler mais</a>
                     </div>

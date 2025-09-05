@@ -45,6 +45,7 @@
             <img id="post-image" src="../public/img/exemplo.jpg" alt="Imagem do Post" style="width: 100%; max-width: 600px; height: 432px; object-fit: contain; border-radius: 5px; margin: 20px 0;">
             <p id="post-summary" style="text-align: justify; margin: 20px 0;">Resumo do post aqui...</p>
             <p style="text-align: center;"><strong>Avaliação:</strong> <span id="post-rating">★★★★☆</span></p>
+            <p id="texto-lido-ate" style="text-align: center;"><strong>Lido até:</strong> <span id="post-lido-ate">N/A</span></p>
             <p style="text-align: center;"><strong>Data do Post:</strong> <span id="post-date">01/01/2023</span></p>
             <p style="text-align: center;"><strong>Categoria:</strong> <span id="post-category">Mangas</span></p>
             <div style="text-align: center; margin-top: 30px;">
@@ -69,6 +70,19 @@
             return urlParams.get('id');
         }
 
+        // Função para obter o texto da marca baseado na categoria
+        function obterTextoMarca(categoryId) {
+            if (categoryId === 1 || categoryId === 3) {
+                return "Lido até:";
+            } else if (categoryId === 2 || categoryId === 4) {
+                return "Visto até:";
+            } else if (categoryId === 5) {
+                return "Feito até:";
+            } else {
+                return "Até:";
+            }
+        }
+
         // Função para carregar os detalhes do post
         async function loadPostDetails() {
             const postId = getPostIdFromUrl();
@@ -90,7 +104,13 @@
                 document.getElementById('post-summary').textContent = post.resumo;
                 document.getElementById('post-rating').textContent = '★'.repeat(post.avaliacao) + '☆'.repeat(5 - post.avaliacao);
                 document.getElementById('post-date').textContent = new Date(post.data_post).toLocaleDateString('pt-BR');
+                document.getElementById('post-lido-ate').textContent = post.lido_ate || 'N/A';
                 document.getElementById('post-category').textContent = post.Category ? post.Category.name : 'N/A';
+
+                // Atualizar o texto da marca baseado na categoria
+                const textoMarcaElement = document.getElementById('texto-lido-ate');
+                const textoMarca = obterTextoMarca(post.Category ? post.Category.id : 0);
+                textoMarcaElement.innerHTML = `<strong>${textoMarca}</strong> <span id="post-lido-ate">${post.lido_ate || 'N/A'}</span>`;
             } catch (error) {
                 console.error('Erro:', error);
                 document.getElementById('post-title').textContent = 'Erro ao carregar post';
