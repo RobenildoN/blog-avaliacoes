@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Post</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header
         style="display: flex; flex-direction: column; align-items: center; background: #35424a; color: #fff; padding: 10px 0;">
@@ -14,7 +16,8 @@
         </div>
         <div class="search-box"
             style="display: flex; align-items: center; justify-content: center; margin-bottom: 15px; width: 100%;">
-            <input type="text" placeholder="Pesquisar títulos e resumos..." id="searchBox" style="width: 200px; padding: 8px;">
+            <input type="text" placeholder="Pesquisar títulos e resumos..." id="searchBox"
+                style="width: 200px; padding: 8px;">
             <button onclick="realizarBusca()"
                 style="margin-left: 8px; padding: 8px 16px; background: #5cb85c; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Pesquisar</button>
             <button onclick="limparBusca()"
@@ -42,19 +45,23 @@
     <main style="text-align: center;">
         <article style="display: inline-block; text-align: center; max-width: 800px; margin: 20px auto;">
             <h2 id="post-title" style="text-align: center;">Título do Post</h2>
-            <img id="post-image" src="../public/img/exemplo.jpg" alt="Imagem do Post" style="width: 100%; max-width: 600px; height: 432px; object-fit: contain; border-radius: 5px; margin: 20px 0;">
+            <img id="post-image" src="../public/img/exemplo.jpg" alt="Imagem do Post"
+                style="width: 100%; max-width: 600px; height: 432px; object-fit: contain; border-radius: 5px; margin: 20px 0;">
             <p id="post-summary" style="text-align: justify; margin: 20px 0;">Resumo do post aqui...</p>
             <p style="text-align: center;"><strong>Avaliação:</strong> <span id="post-rating">★★★★☆</span></p>
-            <p id="texto-lido-ate" style="text-align: center;"><strong>Lido até:</strong> <span id="post-lido-ate">N/A</span></p>
+            <p id="texto-lido-ate" style="text-align: center;"><strong>Lido até:</strong> <span
+                    id="post-lido-ate">N/A</span></p>
             <p style="text-align: center;"><strong>Data do Post:</strong> <span id="post-date">01/01/2023</span></p>
             <p style="text-align: center;"><strong>Categoria:</strong> <span id="post-category">Mangas</span></p>
             <div style="text-align: center; margin-top: 30px;">
-                <button id="editPostBtn" style="display: inline-block; padding: 12px 24px; background: #007bff; color: #fff; text-decoration: none; border-radius: 5px; border: none; cursor: pointer; font-size: 16px;">Editar Post</button>
+                <button id="editPostBtn"
+                    style="display: inline-block; padding: 12px 24px; background: #007bff; color: #fff; text-decoration: none; border-radius: 5px; border: none; cursor: pointer; font-size: 16px;">Editar
+                    Post</button>
             </div>
         </article>
     </main>
     <footer>
-        <p><a href="#">Blog de Avaliações</a></p>
+        <p style="color: #fff"><a href="#">Blog de Avaliações</a></p>
     </footer>
 
     <script>
@@ -190,7 +197,7 @@
         }
 
         // Carregar os detalhes do post ao carregar a página
-        document.addEventListener('DOMContentLoaded', async function() {
+        document.addEventListener('DOMContentLoaded', async function () {
             loadPostDetails();
 
             // Verificar status de login e mostrar/esconder botão editar
@@ -199,7 +206,7 @@
             if (isLoggedIn) {
                 editBtn.style.display = 'inline-block';
                 // Adicionar funcionalidade ao botão editar
-                editBtn.addEventListener('click', function() {
+                editBtn.addEventListener('click', function () {
                     const postId = getPostIdFromUrl();
                     if (postId) {
                         window.location.href = `/admin.html?edit=${postId}`;
@@ -214,7 +221,7 @@
 
             // Adicionar event listener para busca com Enter
             const searchInput = document.getElementById('searchBox');
-            searchInput.addEventListener('keypress', function(e) {
+            searchInput.addEventListener('keypress', function (e) {
                 if (e.key === 'Enter') {
                     realizarBusca();
                 }
@@ -222,4 +229,5 @@
         });
     </script>
 </body>
+
 </html>
