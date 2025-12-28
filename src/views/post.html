@@ -25,20 +25,15 @@
         </div>
         <nav style="width: 100%; display: flex; justify-content: center;">
             <ul style="list-style: none; margin: 0; padding: 0; display: flex;">
-                <li style="margin: 0 15px;"><a href="index.html" style="color: #fff;">Home</a></li>
-                <li style="margin: 0 15px;"><a href="#" onclick="filtrarPorCategoria(1)"
-                        style="color: #fff; cursor: pointer;">Mangas</a></li>
-                <li style="margin: 0 15px;"><a href="#" onclick="filtrarPorCategoria(3)"
-                        style="color: #fff; cursor: pointer;">Livros</a></li>
-                <li style="margin: 0 15px;"><a href="#" onclick="filtrarPorCategoria(2)"
-                        style="color: #fff; cursor: pointer;">Filmes</a></li>
-                <li style="margin: 0 15px;"><a href="#" onclick="filtrarPorCategoria(4)"
-                        style="color: #fff; cursor: pointer;">Séries</a></li>
-                <li style="margin: 0 15px;"><a href="#" onclick="filtrarPorCategoria(5)"
-                        style="color: #fff; cursor: pointer;">Cursos</a></li>
-                <li style="margin: 0 15px;" id="createPostLink"><a href="admin.html" style="color: #fff;">Criar Post</a>
+                <li style="margin: 0 15px;"><a class="nav-link" href="index.html">Home</a></li>
+                <li style="margin: 0 15px;"><a class="nav-link" href="#" onclick="filtrarPorCategoria(1)">Mangas</a></li>
+                <li style="margin: 0 15px;"><a class="nav-link" href="#" onclick="filtrarPorCategoria(3)">Livros</a></li>
+                <li style="margin: 0 15px;"><a class="nav-link" href="#" onclick="filtrarPorCategoria(2)">Filmes</a></li>
+                <li style="margin: 0 15px;"><a class="nav-link" href="#" onclick="filtrarPorCategoria(4)">Séries</a></li>
+                <li style="margin: 0 15px;"><a class="nav-link" href="#" onclick="filtrarPorCategoria(5)">Cursos</a></li>
+                <li style="margin: 0 15px;" id="createPostLink"><a class="nav-link" href="admin.html">Criar Post</a>
                 </li>
-                <li style="margin: 0 15px;" id="authLink"><a href="login.html" style="color: #fff;">Logar</a></li>
+                <li style="margin: 0 15px;" id="authLink"><a class="nav-link" href="login.html">Logar</a></li>
             </ul>
         </nav>
     </header>
@@ -186,12 +181,10 @@
             const isLoggedIn = await checkLoginStatus();
 
             if (isLoggedIn) {
-                // Usuário logado - mostrar botão de logout e link de criar post
-                authLinkContainer.innerHTML = '<button onclick="logout()" style="background: none; border: 1px solid white; color: white; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Deslogar</button>';
+                authLinkContainer.innerHTML = '<a class="nav-link" href="#" onclick="logout()">Deslogar</a>';
                 createPostLink.style.display = 'block';
             } else {
-                // Usuário não logado - mostrar link de login e esconder criar post
-                authLinkContainer.innerHTML = '<a href="login.html" style="color: #fff;">Logar</a>';
+                authLinkContainer.innerHTML = '<a class="nav-link" href="login.html">Logar</a>';
                 createPostLink.style.display = 'none';
             }
         }

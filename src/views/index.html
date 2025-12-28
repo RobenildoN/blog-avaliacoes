@@ -12,14 +12,18 @@
                 flex-direction: column;
                 align-items: center;
             }
+
             header nav li {
                 margin: 5px 0;
             }
+
             .search-box {
                 flex-direction: column;
                 align-items: center;
             }
-            .search-box input, .search-box button {
+
+            .search-box input,
+            .search-box button {
                 margin-bottom: 5px;
             }
         }
@@ -34,7 +38,8 @@
         </div>
         <div class="search-box"
             style="display: flex; align-items: center; justify-content: center; margin-bottom: 15px; width: 100%;">
-            <input type="text" placeholder="Pesquisar títulos e resumos..." id="searchBox" style="width: 200px; padding: 8px;">
+            <input type="text" placeholder="Pesquisar títulos e resumos..." id="searchBox"
+                style="width: 200px; padding: 8px;">
             <button onclick="realizarBusca()"
                 style="margin-left: 8px; padding: 8px 16px; background: #5cb85c; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Pesquisar</button>
             <button onclick="limparBusca()"
@@ -42,19 +47,19 @@
         </div>
         <nav style="width: 100%; display: flex; justify-content: center;">
             <ul style="list-style: none; margin: 0; padding: 0; display: flex;">
-                <li style="margin: 0 15px;"><a href="#" onclick="filtrarPorCategoria(1)"
-                        style="color: #fff; cursor: pointer;">Mangas</a></li>
-                <li style="margin: 0 15px;"><a href="#" onclick="filtrarPorCategoria(3)"
-                        style="color: #fff; cursor: pointer;">Livros</a></li>
-                <li style="margin: 0 15px;"><a href="#" onclick="filtrarPorCategoria(2)"
-                        style="color: #fff; cursor: pointer;">Filmes</a></li>
-                <li style="margin: 0 15px;"><a href="#" onclick="filtrarPorCategoria(4)"
-                        style="color: #fff; cursor: pointer;">Séries</a></li>
-                <li style="margin: 0 15px;"><a href="#" onclick="filtrarPorCategoria(5)"
-                        style="color: #fff; cursor: pointer;">Cursos</a></li>
-                <li style="margin: 0 15px;" id="createPostLink"><a href="admin.html" style="color: #fff;">Criar Post</a>
+                <li style="margin: 0 15px;"><a class="nav-link" href="#" onclick="filtrarPorCategoria(1)">Mangas</a>
                 </li>
-                <li style="margin: 0 15px;" id="authLink"><a href="login.html" style="color: #fff;">Logar</a></li>
+                <li style="margin: 0 15px;"><a class="nav-link" href="#" onclick="filtrarPorCategoria(3)">Livros</a>
+                </li>
+                <li style="margin: 0 15px;"><a class="nav-link" href="#" onclick="filtrarPorCategoria(2)">Filmes</a>
+                </li>
+                <li style="margin: 0 15px;"><a class="nav-link" href="#" onclick="filtrarPorCategoria(4)">Séries</a>
+                </li>
+                <li style="margin: 0 15px;"><a class="nav-link" href="#" onclick="filtrarPorCategoria(5)">Cursos</a>
+                </li>
+                <li style="margin: 0 15px;" id="createPostLink"><a class="nav-link" href="admin.html">Criar Post</a>
+                </li>
+                <li style="margin: 0 15px;" id="authLink"><a class="nav-link" href="login.html">Logar</a></li>
             </ul>
         </nav>
     </header>
@@ -73,9 +78,11 @@
 
             <!-- Controles de paginação -->
             <div id="paginationControls" style="display: none; text-align: center; margin-top: 30px;">
-                <button id="prevPageBtn" onclick="mudarPagina(-1)" style="padding: 10px 20px; margin: 0 10px; background: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer;">Anterior</button>
+                <button id="prevPageBtn" onclick="mudarPagina(-1)"
+                    style="padding: 10px 20px; margin: 0 10px; background: #6c757d; color: white; border: none; border-radius: 5px; cursor: pointer;">Anterior</button>
                 <span id="pageInfo" style="margin: 0 20px; font-weight: bold;"></span>
-                <button id="nextPageBtn" onclick="mudarPagina(1)" style="padding: 10px 20px; margin: 0 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Próximo</button>
+                <button id="nextPageBtn" onclick="mudarPagina(1)"
+                    style="padding: 10px 20px; margin: 0 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Próximo</button>
             </div>
         </section>
     </main>
@@ -241,12 +248,10 @@
             const isLoggedIn = await verificarLogin();
 
             if (isLoggedIn) {
-                // Usuário logado - mostrar botão de logout e link de criar post
-                authLinkContainer.innerHTML = '<button onclick="logout()" style="background: none; border: 1px solid white; color: white; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Deslogar</button>';
+                authLinkContainer.innerHTML = '<a class="nav-link" href="#" onclick="logout()">Deslogar</a>';
                 createPostLink.style.display = 'block';
             } else {
-                // Usuário não logado - mostrar link de login e esconder criar post
-                authLinkContainer.innerHTML = '<a href="login.html" style="color: #fff;">Logar</a>';
+                authLinkContainer.innerHTML = '<a class="nav-link" href="login.html">Logar</a>';
                 createPostLink.style.display = 'none';
             }
         }
@@ -335,7 +340,7 @@
 
             // Adicionar event listener para busca com Enter
             const searchInput = document.getElementById('searchBox');
-            searchInput.addEventListener('keypress', function(e) {
+            searchInput.addEventListener('keypress', function (e) {
                 if (e.key === 'Enter') {
                     realizarBusca();
                 }
