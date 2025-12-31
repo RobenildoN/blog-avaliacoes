@@ -67,6 +67,7 @@ Um blog moderno e responsivo dedicado à avaliação e compartilhamento de opini
 - **Swagger**: Documentação interativa da API
 - **Git**: Controle de versão
 - **VS Code**: Ambiente de desenvolvimento
+- **Projeto Web-Only**: Sem Electron; execução via Node/Express
 
 ## 📁 Estrutura do Projeto
 
@@ -91,7 +92,6 @@ blog-avaliacoes/
 │   │   ├── post.html           # Página individual do post
 │   │   ├── admin.html          # Área administrativa
 │   │   ├── login.html          # Página de login
-│   │   ├── categoria.html      # Página de categoria
 │   │   └── categorias.html     # Lista de categorias
 │   ├── public/              # Arquivos estáticos
 │   │   ├── css/
@@ -205,12 +205,6 @@ npm start
 
 # Iniciar servidor em modo desenvolvimento (com nodemon)
 npm run dev
-
-# Executar testes (se configurados)
-npm test
-
-# Gerar documentação
-npm run docs
 ```
 
 ## 📊 Funcionalidades Detalhadas
@@ -231,8 +225,7 @@ npm run docs
 
 ### Sistema de Autenticação
 - **Sessões Seguras**: Gerenciamento de sessão com express-session
-- **Proteção CSRF**: Prevenção de ataques cross-site
-- **Logout Seguro**: Limpeza completa da sessão
+- **Logout**: Limpeza da sessão
 - **Verificação de Status**: API para verificar login ativo
 
 ### Upload de Imagens
